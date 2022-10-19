@@ -29,5 +29,9 @@
     "web": {
       "favicon": "./assets/favicon.png"
     }
+  },
+  "supabase": {
+    "url": "https://dsmlumyqscemkqzdqnmq.supabase.co",
+    "anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzbWx1bXlxc2NlbWtxemRxbm1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjYxODMyOTcsImV4cCI6MTk4MTc1OTI5N30.B5KKFiXpZDhgJ2z8Ywo19ptFkZgNfO38DdsMUP67OQE"
   }
 }
