@@ -19,9 +19,9 @@ export default function HomeView() {
         setTasks(tasks);
     }
 
-    let taskButtons = tasks.map((task) => (
-        <TaskButton key={task.id} task={task} />
-    ));
+    let taskButtons = tasks
+        .filter((task) => !task.completed_at)
+        .map((task) => <TaskButton key={task.id} task={task} />);
 
     useEffect(() => {
         load();
@@ -61,6 +61,12 @@ export default function HomeView() {
                         <Text>Add</Text>
                     </TouchableOpacity>
                 </View>
+                <TouchableOpacity
+                    style={[styles.buttonText, styles.buttonActiveText]}
+                    onPress={() => load()}
+                >
+                    <Text>Refresh</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

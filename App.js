@@ -5,6 +5,11 @@ import { StyleSheet, Text, View } from "react-native";
 import Auth from "./views/Auth";
 import HomeView from "./views/HomeVIew";
 import { supabase } from "./state/supabase";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import TaskView from "./views/TaskView";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
     const [session, setSession] = useState(undefined);
@@ -26,7 +31,20 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            {session ? <HomeView /> : <Auth />}
+            {session ? (
+                <NavigationContainer>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerShown: false,
+                        }}
+                    >
+                        <Stack.Screen name="HomeView" component={HomeView} />
+                        <Stack.Screen name="TaskView" component={TaskView} />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            ) : (
+                <Auth />
+            )}
         </View>
     );
 }

@@ -1,9 +1,18 @@
-import { useEffect } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function TaskButton({ task }) {
+    const navigation = useNavigation();
+
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+            style={styles.container}
+            onPress={() => {
+                navigation.navigate("TaskView", {
+                    task,
+                });
+            }}
+        >
             <Text style={styles.textColor}>{task.task_content}</Text>
         </TouchableOpacity>
     );
